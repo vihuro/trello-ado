@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{8E6A9FA4-3D45-4C3E-A4A0-44E166B182F7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{B02FAF40-C5E3-4022-B8D2-26E929083529}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentantion", "Presentantion", "{557D2B54-AA1A-4055-A889-063AFEC46E23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model.Trello.Api", "Model.Trello.Api\Model.Trello.Api.csproj", "{F0BF4F5D-6DAB-431A-AB82-56ED7BB8FE6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model.Trello.Application", "Model.Trello.Application\Model.Trello.Application.csproj", "{8F1A890B-AB6D-4933-B3BF-DBD18E5643B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model.Trello.Domain", "Model.Trello.Domain\Model.Trello.Domain.csproj", "{1517EF90-A393-46B2-8A0D-7F1F5B9879FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model.Trello.Persistence", "Model.Trello.Persistence\Model.Trello.Persistence.csproj", "{0B9A048D-6DD6-4FA4-8F11-0A74B2C5023B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F0BF4F5D-6DAB-431A-AB82-56ED7BB8FE6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0BF4F5D-6DAB-431A-AB82-56ED7BB8FE6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0BF4F5D-6DAB-431A-AB82-56ED7BB8FE6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0BF4F5D-6DAB-431A-AB82-56ED7BB8FE6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F1A890B-AB6D-4933-B3BF-DBD18E5643B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F1A890B-AB6D-4933-B3BF-DBD18E5643B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F1A890B-AB6D-4933-B3BF-DBD18E5643B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F1A890B-AB6D-4933-B3BF-DBD18E5643B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1517EF90-A393-46B2-8A0D-7F1F5B9879FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1517EF90-A393-46B2-8A0D-7F1F5B9879FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1517EF90-A393-46B2-8A0D-7F1F5B9879FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1517EF90-A393-46B2-8A0D-7F1F5B9879FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B9A048D-6DD6-4FA4-8F11-0A74B2C5023B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B9A048D-6DD6-4FA4-8F11-0A74B2C5023B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B9A048D-6DD6-4FA4-8F11-0A74B2C5023B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B9A048D-6DD6-4FA4-8F11-0A74B2C5023B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F0BF4F5D-6DAB-431A-AB82-56ED7BB8FE6D} = {557D2B54-AA1A-4055-A889-063AFEC46E23}
+		{8F1A890B-AB6D-4933-B3BF-DBD18E5643B5} = {B02FAF40-C5E3-4022-B8D2-26E929083529}
+		{1517EF90-A393-46B2-8A0D-7F1F5B9879FA} = {B02FAF40-C5E3-4022-B8D2-26E929083529}
+		{0B9A048D-6DD6-4FA4-8F11-0A74B2C5023B} = {8E6A9FA4-3D45-4C3E-A4A0-44E166B182F7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {916D003F-C2B9-4A0E-83BD-67AF38A041B2}
+	EndGlobalSection
+EndGlobal

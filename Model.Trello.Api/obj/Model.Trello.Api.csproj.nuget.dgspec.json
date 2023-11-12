@@ -1,0 +1,312 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Api\\Model.Trello.Api.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Api\\Model.Trello.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Api\\Model.Trello.Api.csproj",
+        "projectName": "Model.Trello.Api",
+        "projectPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Api\\Model.Trello.Api.csproj",
+        "packagesPath": "C:\\Users\\vitor\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Api\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\vitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Application\\Model.Trello.Application.csproj": {
+                "projectPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Application\\Model.Trello.Application.csproj"
+              },
+              "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Persistence\\Model.Trello.Persistence.csproj": {
+                "projectPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Persistence\\Model.Trello.Persistence.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.1.1, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.13, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.18.1, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL.Design": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Application\\Model.Trello.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Application\\Model.Trello.Application.csproj",
+        "projectName": "Model.Trello.Application",
+        "projectPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Application\\Model.Trello.Application.csproj",
+        "packagesPath": "C:\\Users\\vitor\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\vitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Domain\\Model.Trello.Domain.csproj": {
+                "projectPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Domain\\Model.Trello.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.8.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.1.1, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Domain\\Model.Trello.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Domain\\Model.Trello.Domain.csproj",
+        "projectName": "Model.Trello.Domain",
+        "projectPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Domain\\Model.Trello.Domain.csproj",
+        "packagesPath": "C:\\Users\\vitor\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\vitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Persistence\\Model.Trello.Persistence.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Persistence\\Model.Trello.Persistence.csproj",
+        "projectName": "Model.Trello.Persistence",
+        "projectPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Persistence\\Model.Trello.Persistence.csproj",
+        "packagesPath": "C:\\Users\\vitor\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Persistence\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\vitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Application\\Model.Trello.Application.csproj": {
+                "projectPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Application\\Model.Trello.Application.csproj"
+              },
+              "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Domain\\Model.Trello.Domain.csproj": {
+                "projectPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Domain\\Model.Trello.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "FluentMigrator": {
+              "target": "Package",
+              "version": "[3.3.2, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
