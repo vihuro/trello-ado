@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jlOprDT4Sm4GR8MHy7Jnf4CB3hOoQdFC7XC13SAtuWrfSzYdIJnqq3Y0cGVC7MBwOlkhU8QyipmdHqC9DO7Qiw==",
+  "dgSpecHash": "vLXdSJV1hdhO2QlkoonUkQ7MC0pLoO4IqrxQ9q+iBwIo923mjPK41z5zVhTDfjCEvbZT9sDBcoZ38mCx5ZgjnQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Domain\\Model.Trello.Domain.csproj",
+  "projectFilePath": "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Domain\\Model.Trello.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

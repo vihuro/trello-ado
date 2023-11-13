@@ -27,6 +27,8 @@ namespace Model.Trello.Persistence
 
             services.AddScoped<IUserEntityRepositoryADO, UserEntityRepositoryADO>();
 
+            services.AddScoped<ITaskAdoRepositoy, TaskAdoRepositoy>();
+
             services.AddScoped<IUnitOfWorkADO, UnitOfWorkAdo>();
 
             services.AddScoped<IDbConnection>(con => new NpgsqlConnection(connectionString));

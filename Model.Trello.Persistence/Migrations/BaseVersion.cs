@@ -10,7 +10,7 @@ namespace Model.Trello.Persistence.Migrations
         {
             return column
                 .WithColumn("Id")
-                    .AsInt64()
+                    .AsInt32()
                     .PrimaryKey()
                     .Identity()
                 .WithColumn("DateCreated")

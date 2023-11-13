@@ -3,7 +3,7 @@ using System.Data;
 
 namespace Model.Trello.Persistence.Repositories
 {
-    public class UnitOfWorkAdo : IUnitOfWorkADO , IDisposable
+    public class UnitOfWorkAdo : IUnitOfWorkADO
     {
         private readonly IAdoContext _context;
 
@@ -12,10 +12,18 @@ namespace Model.Trello.Persistence.Repositories
             _context = context;
         }
 
-        public void BeginTrasaction()
+        public IDbTransaction BeginTrasaction()
         {
+            if(_context.Connection.State == ConnectionState.Open)
+            {
+                _context.Connection.Close();
+            }
+                
+
             _context.Connection.Open();
-            _context.Transaction = _context.Connection.BeginTransaction();
+
+            return _context.Transaction = _context.Connection.BeginTransaction();
+
         }
 
         public IDbCommand CreateCommad()
@@ -34,7 +42,10 @@ namespace Model.Trello.Persistence.Repositories
             _context.Transaction.Rollback();
             Dispose();
         }
-        public void Dispose() => _context.Transaction?.Dispose();
-
+        public void Dispose()
+        {
+            _context.Transaction?.Dispose();
+            _context.Connection?.Dispose();
+        }
     }
 }

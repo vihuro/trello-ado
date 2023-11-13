@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Api\\Model.Trello.Api.csproj": {}
+    "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Api\\Model.Trello.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Api\\Model.Trello.Api.csproj": {
+    "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Api\\Model.Trello.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Api\\Model.Trello.Api.csproj",
+        "projectUniqueName": "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Api\\Model.Trello.Api.csproj",
         "projectName": "Model.Trello.Api",
-        "projectPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Api\\Model.Trello.Api.csproj",
-        "packagesPath": "C:\\Users\\vitor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Api\\obj\\",
+        "projectPath": "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Api\\Model.Trello.Api.csproj",
+        "packagesPath": "C:\\Users\\thr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Api\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\vitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,18 +26,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Application\\Model.Trello.Application.csproj": {
-                "projectPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Application\\Model.Trello.Application.csproj"
+              "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Application\\Model.Trello.Application.csproj": {
+                "projectPath": "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Application\\Model.Trello.Application.csproj"
               },
-              "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Persistence\\Model.Trello.Persistence.csproj": {
-                "projectPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Persistence\\Model.Trello.Persistence.csproj"
+              "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Persistence\\Model.Trello.Persistence.csproj": {
+                "projectPath": "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Persistence\\Model.Trello.Persistence.csproj"
               }
             }
           }
@@ -100,21 +103,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Application\\Model.Trello.Application.csproj": {
+    "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Application\\Model.Trello.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Application\\Model.Trello.Application.csproj",
+        "projectUniqueName": "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Application\\Model.Trello.Application.csproj",
         "projectName": "Model.Trello.Application",
-        "projectPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Application\\Model.Trello.Application.csproj",
-        "packagesPath": "C:\\Users\\vitor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Application\\obj\\",
+        "projectPath": "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Application\\Model.Trello.Application.csproj",
+        "packagesPath": "C:\\Users\\thr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\vitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -128,8 +135,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Domain\\Model.Trello.Domain.csproj": {
-                "projectPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Domain\\Model.Trello.Domain.csproj"
+              "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Domain\\Model.Trello.Domain.csproj": {
+                "projectPath": "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Domain\\Model.Trello.Domain.csproj"
               }
             }
           }
@@ -147,6 +154,10 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[12.0.1, )"
+            },
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
             },
             "FluentValidation.DependencyInjectionExtensions": {
               "target": "Package",
@@ -177,21 +188,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Domain\\Model.Trello.Domain.csproj": {
+    "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Domain\\Model.Trello.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Domain\\Model.Trello.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Domain\\Model.Trello.Domain.csproj",
         "projectName": "Model.Trello.Domain",
-        "projectPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Domain\\Model.Trello.Domain.csproj",
-        "packagesPath": "C:\\Users\\vitor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Domain\\obj\\",
+        "projectPath": "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Domain\\Model.Trello.Domain.csproj",
+        "packagesPath": "C:\\Users\\thr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\vitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -232,21 +247,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Persistence\\Model.Trello.Persistence.csproj": {
+    "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Persistence\\Model.Trello.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Persistence\\Model.Trello.Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Persistence\\Model.Trello.Persistence.csproj",
         "projectName": "Model.Trello.Persistence",
-        "projectPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Persistence\\Model.Trello.Persistence.csproj",
-        "packagesPath": "C:\\Users\\vitor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Persistence\\obj\\",
+        "projectPath": "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Persistence\\Model.Trello.Persistence.csproj",
+        "packagesPath": "C:\\Users\\thr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Persistence\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\vitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -260,11 +279,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Application\\Model.Trello.Application.csproj": {
-                "projectPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Application\\Model.Trello.Application.csproj"
+              "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Application\\Model.Trello.Application.csproj": {
+                "projectPath": "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Application\\Model.Trello.Application.csproj"
               },
-              "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Domain\\Model.Trello.Domain.csproj": {
-                "projectPath": "C:\\Users\\vitor\\Desktop\\.NET\\Model.Trello.Ado\\Model.Trello.Domain\\Model.Trello.Domain.csproj"
+              "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Domain\\Model.Trello.Domain.csproj": {
+                "projectPath": "C:\\Users\\thr\\Desktop\\.NET\\trello-ado\\Model.Trello.Domain\\Model.Trello.Domain.csproj"
               }
             }
           }
@@ -312,7 +331,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

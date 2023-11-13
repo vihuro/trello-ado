@@ -5,23 +5,22 @@ namespace Model.Trello.Application.UseCases.Tasks.UpdateForEnd
 {
     public class UpdateForEndValidation : AbstractValidator<UpdateForEndRequest>
     {
-        private readonly ITaskRepository _taskRepository;
+        private readonly ITaskAdoRepositoy _taskRepository;
+        private readonly IUnitOfWorkADO _unitOfWork;
 
-        public UpdateForEndValidation(ITaskRepository taskRepository)
+        public UpdateForEndValidation(ITaskAdoRepositoy taskRepository, IUnitOfWorkADO unitOfWork)
         {
             _taskRepository = taskRepository;
+            _unitOfWork = unitOfWork;
 
-            RuleFor(x => x)
+            RuleFor(x => x.Id)
                 .MustAsync(ValidateTask)
                 .WithMessage("Task not found!");
         }
 
-        private async Task<bool> ValidateTask(UpdateForEndRequest request, CancellationToken cancellationToken)
+        private Task<bool> ValidateTask(int taskId, CancellationToken token)
         {
-            var task = await _taskRepository.GetById(request.Id, cancellationToken);
-
-            if (task != null) return true;
-            return false;        
+            return ValidationTask.ValidateExisingTask(taskId, _taskRepository, _unitOfWork);
         }
     }
 }

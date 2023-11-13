@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Model.Trello.Application.UseCases.User.CreateUser;
 using Model.Trello.Application.UseCases.User.GetAllUser;
+using Model.Trello.Application.UseCases.User.GetUserByName;
 
 namespace Model.Trello.Api.Controller
 {
@@ -24,6 +25,23 @@ namespace Model.Trello.Api.Controller
                 var item = await _mediator.Send(request, cancellationToken);
 
                 return Created("", item);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpGet("{name}")]
+        public async Task<ActionResult<GetUserByNameResponse>> GetUserByName(string name,CancellationToken cancellationToken)
+        {
+            try
+            {
+                var result = await _mediator.Send(new GetUserByNameRequest(name), cancellationToken);
+
+                if (result == null) return NotFound("User not found");
+
+                return Ok(result);
             }
             catch (Exception ex)
             {

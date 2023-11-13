@@ -5,22 +5,23 @@ namespace Model.Trello.Application.UseCases.Tasks.UpdateForEnd
 {
     public class UpdateForInProcessValidation : AbstractValidator<UpdateForInProcessRequest>
     {
-        private readonly ITaskRepository _taskRepository;
-
-        public UpdateForInProcessValidation(ITaskRepository taskRepository)
+        private readonly ITaskAdoRepositoy _taskRepository;
+        private readonly IUnitOfWorkADO _unitOfWork;
+        public UpdateForInProcessValidation(ITaskAdoRepositoy taskRepository, IUnitOfWorkADO unitOfWork)
         {
             _taskRepository = taskRepository;
+            _unitOfWork = unitOfWork;
 
-            RuleFor(x => x)
+            RuleFor(x => x.Id)
                 .MustAsync(ValidateTask)
                 .WithMessage("Task not found!");
         }
 
-        private async Task<bool> ValidateTask(UpdateForInProcessRequest request, CancellationToken cancellationToken)
+        private Task<bool> ValidateTask(int taskId, CancellationToken token)
         {
-            var task = await _taskRepository.GetById(request.Id, cancellationToken);
+            return ValidationTask.ValidateExisingTask(taskId, _taskRepository, _unitOfWork);
+        }
 
-            if (task != null) return true;
-            return false;        }
+
     }
 }

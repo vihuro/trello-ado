@@ -3,9 +3,9 @@ using System.Data;
 
 namespace Model.Trello.Domain.Interface
 {
-    public interface IUnitOfWorkADO
+    public interface IUnitOfWorkADO : IDisposable
     {
-        void BeginTrasaction();
+        IDbTransaction BeginTrasaction();
         void Commit();
         IDbCommand CreateCommad();
         void RollBack();

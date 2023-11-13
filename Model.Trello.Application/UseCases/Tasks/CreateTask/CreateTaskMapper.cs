@@ -10,7 +10,8 @@ namespace Model.Trello.Application.UseCases.Tasks.CreateTask
         public CreateTaskMapper()
         {
             CreateMap<CreateTaskRequest, TaskEntity>()
-                .ForMember(x => x.Status, map => map.MapFrom(src => 0));
+                .ForMember(x => x.Status, map => map.MapFrom(src => 0))
+                .ForMember(x => x.DateCreated, map => map.MapFrom(src => DateTime.UtcNow));
             CreateMap<TaskEntity, CreateTaskResponse>()
                 .ForMember(x => x.Status, map => map.MapFrom(src => ValidateStatus(src.Status)));
         }

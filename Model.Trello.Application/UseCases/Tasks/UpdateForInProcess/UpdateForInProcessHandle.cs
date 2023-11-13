@@ -7,11 +7,11 @@ namespace Model.Trello.Application.UseCases.Tasks.UpdateForEnd
     internal class UpdateForInProcessHandle :
         IRequestHandler<UpdateForInProcessRequest, TasksDefault>
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWorkADO _unitOfWork;
         private readonly IMapper _mapper;
-        private readonly ITaskRepository _taskRepository;
+        private readonly ITaskAdoRepositoy _taskRepository;
 
-        public UpdateForInProcessHandle(IUnitOfWork unitOfWork, IMapper mapper, ITaskRepository taskRepository)
+        public UpdateForInProcessHandle(IUnitOfWorkADO unitOfWork, IMapper mapper, ITaskAdoRepositoy taskRepository)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
@@ -20,10 +20,12 @@ namespace Model.Trello.Application.UseCases.Tasks.UpdateForEnd
 
         public async Task<TasksDefault> Handle(UpdateForInProcessRequest request, CancellationToken cancellationToken)
         {
-            var entity = await _taskRepository
-                                .UpdateForInProcess(request.Id, cancellationToken);
+            _unitOfWork.BeginTrasaction();
 
-            await _unitOfWork.Commit(cancellationToken);
+            var entity = await _taskRepository
+                                .UpdateForInProcess(request.Id);
+
+            _unitOfWork.Commit();
 
             return _mapper.Map<TasksDefault>(entity);
         }

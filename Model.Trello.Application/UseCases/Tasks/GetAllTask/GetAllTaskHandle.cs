@@ -9,18 +9,26 @@ namespace Model.Trello.Application.UseCases.Tasks.GetAllTask
         IRequestHandler<GetAllTaskRequest, List<GetAllTaskResponse>>
     {
         private readonly IMapper _mapper;
-        private readonly ITaskRepository _taskRepository;
+        private readonly IUnitOfWorkADO _unitOfWork;
+        private readonly ITaskAdoRepositoy _taskRepository;
 
-        public GetAllTaskHandle(IMapper mapper, ITaskRepository taskRepository)
+        public GetAllTaskHandle(IMapper mapper, 
+                                IUnitOfWorkADO unitOfWork, 
+                                ITaskAdoRepositoy taskRepository)
         {
             _mapper = mapper;
+            _unitOfWork = unitOfWork;
             _taskRepository = taskRepository;
         }
 
         public async Task<List<GetAllTaskResponse>> Handle(GetAllTaskRequest request,
                                                             CancellationToken cancellationToken)
         {
-            var taksList = await _taskRepository.GetList(cancellationToken);
+            using var unitOfWork = _unitOfWork.BeginTrasaction();
+
+
+            var taksList = await _taskRepository.GetAll();
+
 
             return _mapper.Map<List<GetAllTaskResponse>>(taksList);
         }

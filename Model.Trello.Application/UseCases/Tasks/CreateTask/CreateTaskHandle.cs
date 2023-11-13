@@ -9,10 +9,10 @@ namespace Model.Trello.Application.UseCases.Tasks.CreateTask
         IRequestHandler<CreateTaskRequest, CreateTaskResponse>
     {
         private readonly IMapper _mapper;
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly ITaskRepository _taskRepository;
+        private readonly IUnitOfWorkADO _unitOfWork;
+        private readonly ITaskAdoRepositoy _taskRepository;
 
-        public CreateTaskHandle(IMapper mapper, IUnitOfWork unitOfWork, ITaskRepository taskRepository)
+        public CreateTaskHandle(IMapper mapper, IUnitOfWorkADO unitOfWork, ITaskAdoRepositoy taskRepository)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
@@ -23,9 +23,11 @@ namespace Model.Trello.Application.UseCases.Tasks.CreateTask
         {
             var task = _mapper.Map<TaskEntity>(request);
 
-            _taskRepository.Create(task);
+            _unitOfWork.BeginTrasaction();
 
-            await _unitOfWork.Commit(cancellationToken);
+            await _taskRepository.Create(task);
+
+            _unitOfWork.Commit();
 
             return _mapper.Map<CreateTaskResponse>(task);
         }

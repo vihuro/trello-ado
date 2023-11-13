@@ -4,6 +4,8 @@ namespace Model.Trello.Domain.Interface
 {
     public interface IUserEntityRepositoryADO
     {
-        public Task<UserEntity> AddUser(UserEntity entity);
+        Task<UserEntity> AddUser(UserEntity entity);
+        Task<List<UserEntity>> GetAllUsers();
+        Task<UserEntity> GetUserByName(string name);
     }
 }
