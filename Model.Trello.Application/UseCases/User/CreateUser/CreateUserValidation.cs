@@ -31,8 +31,6 @@ namespace Model.Trello.Application.UseCases.User.CreateUser
 
             var user = await _userEntityRepositoryADO.GetUserByName(request.Name);
 
-            _unitOfWork.Dispose();
-
             if (user == null) return true;
 
 

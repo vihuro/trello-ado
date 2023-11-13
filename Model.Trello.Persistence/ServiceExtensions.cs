@@ -23,7 +23,6 @@ namespace Model.Trello.Persistence
 
             var justConnection = configuration.GetConnectionString("justConnection");
 
-            services.AddDbContext<AppDbContext>(opt => opt.UseNpgsql(connectionString));
 
             services.AddScoped<IUserEntityRepositoryADO, UserEntityRepositoryADO>();
 
@@ -35,10 +34,9 @@ namespace Model.Trello.Persistence
 
             services.AddScoped<IAdoContext, AdoContext>();
 
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<IUserEntityRepository, UserEntityRepository>();
-            services.AddScoped<ITaskRepository, TaskRepository>();
-            services.AddScoped<ITaskListEntity, TaskListRepository>();
+            services.AddScoped<IListTasksDAORepository, ListTasksDAORepository>();
+
+            services.AddScoped<ITaskInListDAORepository, TaskInListDAORepository>();
 
             var unitOfWorkAdo = services.BuildServiceProvider().GetRequiredService<IUnitOfWorkADO>();
 

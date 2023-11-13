@@ -8,7 +8,7 @@ namespace Model.Trello.Domain.Entities
     {
         public int Id { get; set; }
         public int TaskListId { get; set; }
-        public TaskListEntity TaskList { get; set; }
+        public ListTasksEntity TaskList { get; set; }
         public int Order { get; set; }
     }
 }

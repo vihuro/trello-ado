@@ -8,11 +8,11 @@ namespace Model.Trello.Application.UseCases.TasksList.CreateTaskList
     public class CreateTaskListHandle
         : IRequestHandler<CreateTaskListRequest, CreateTaskListResponse>
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWorkADO _unitOfWork;
         private readonly IMapper _mapper;
-        private readonly ITaskListEntity _listEntity;
+        private readonly IListTasksDAORepository _listEntity;
 
-        public CreateTaskListHandle(IUnitOfWork unitOfWork, IMapper mapper, ITaskListEntity listEntity)
+        public CreateTaskListHandle(IUnitOfWorkADO unitOfWork, IMapper mapper, IListTasksDAORepository listEntity)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
@@ -22,13 +22,13 @@ namespace Model.Trello.Application.UseCases.TasksList.CreateTaskList
         public async Task<CreateTaskListResponse> Handle(CreateTaskListRequest request, 
                                                     CancellationToken cancellationToken)
         {
-            var list = _mapper.Map<TaskListEntity>(request);
+            _unitOfWork.BeginTrasaction();
 
-            _listEntity.Create(list);
+            var entity = await _listEntity.CreateTaskList(request.Name);
 
-            await _unitOfWork.Commit(cancellationToken);
+            _unitOfWork.Commit();
 
-            return _mapper.Map<CreateTaskListResponse>(list);
+            return _mapper.Map<CreateTaskListResponse>(entity);
 
         }
     }
