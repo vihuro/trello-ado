@@ -1,33 +1,17 @@
-﻿using Npgsql;
+﻿using Model.Trello.Domain.Interface;
 using System.Data;
 
 namespace Model.Trello.Persistence.Context
 {
-    public sealed class AdoContext : IDisposable
+    public sealed class AdoContext : IAdoContext
     {
         public IDbConnection Connection { get; }
+
         public IDbTransaction Transaction { get; set; }
 
-        public IDbCommand Command { get; set; }
-
-
-        public AdoContext(string connectionString)
+        public AdoContext(IDbConnection connection)
         {
-            Connection = new NpgsqlConnection(connectionString);
+            Connection = connection;
         }
-        public IDbConnection Connect()
-        {
-            if(Connection.State == ConnectionState.Closed)
-                Connection.Open();
-
-         return Connection;
-        }
-
-        public static NpgsqlCommand CreateCommand()
-        {
-            return new NpgsqlCommand();
-        }
-
-        public void Dispose() => Connection.Dispose();
     }
 }

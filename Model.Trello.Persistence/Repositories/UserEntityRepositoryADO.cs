@@ -1,39 +1,50 @@
 ﻿using Model.Trello.Domain.Entities;
 using Model.Trello.Domain.Interface;
-using Model.Trello.Persistence.Context;
 using Npgsql;
+using System.Data;
 
 namespace Model.Trello.Persistence.Repositories
 {
     public class UserEntityRepositoryADO : IUserEntityRepositoryADO
     {
-        private AdoContext Context;
-
-        public UserEntityRepositoryADO(AdoContext context)
+        private readonly IDbConnection _connection;
+        public UserEntityRepositoryADO(IDbConnection connection)
         {
-            Context = context;
+            _connection = connection;
         }
 
         public async Task<UserEntity> AddUser(UserEntity entity)
         {
 
-            string commandText = $"INSERT INTO tab_user " +
+            string commandText = $"INSERT INTO tab_users " +
                                     $@"(""Name"", ""Password"", ""DateCreated"") " +
                                     $"VALUES " +
-                                    $"(@Name, @Password, @DateTimeCreated);";
+                                    $"(@Name, @Password, @DateCreated) " +
+                                    $@"RETURNING ""Id"", ""DateCreated"";";
 
-            using var cmd = AdoContext.CreateCommand();
 
-            cmd.CommandText = commandText;
+            using (var cmd = (NpgsqlCommand)_connection.CreateCommand())
+            {
+                cmd.CommandText = commandText;
 
-            cmd.Parameters.AddWithValue("@Name", entity.Name);
-            cmd.Parameters.AddWithValue("@Password", entity.Password);
-            cmd.Parameters.AddWithValue("@DateTimeCreated", DateTime.UtcNow);
+                cmd.Parameters.AddWithValue("@Name", entity.Name);
+                cmd.Parameters.AddWithValue("@Password", entity.Password);
+                cmd.Parameters.AddWithValue("@DateCreated", DateTime.UtcNow);
 
-            Context.Connection.Open();
-            cmd.Connection = (NpgsqlConnection?)Context.Connect();
-            await cmd.ExecuteNonQueryAsync();
-            
+                var result = await cmd.ExecuteScalarAsync();
+
+                if(result != DBNull.Value)
+                {
+                }
+
+                
+
+
+
+            }
+
+
+
 
             return entity;
 

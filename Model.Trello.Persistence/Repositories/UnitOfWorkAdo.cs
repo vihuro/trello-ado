@@ -1,21 +1,26 @@
 ﻿using Model.Trello.Domain.Interface;
-using Model.Trello.Persistence.Context;
-
+using System.Data;
 
 namespace Model.Trello.Persistence.Repositories
 {
-    public class UnitOfWorkAdo : IUnitOfWorkADO
+    public class UnitOfWorkAdo : IUnitOfWorkADO , IDisposable
     {
-        private readonly AdoContext _context;
+        private readonly IAdoContext _context;
 
-        public UnitOfWorkAdo(AdoContext context)
+        public UnitOfWorkAdo(IAdoContext context)
         {
             _context = context;
         }
 
         public void BeginTrasaction()
         {
+            _context.Connection.Open();
             _context.Transaction = _context.Connection.BeginTransaction();
+        }
+
+        public IDbCommand CreateCommad()
+        {
+            return _context.Connection.CreateCommand();
         }
 
         public void Commit()

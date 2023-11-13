@@ -9,13 +9,11 @@ namespace Model.Trello.Application.UseCases.User.CreateUser
         IRequestHandler<CreateUserRequest, CreateUserResponse>
     {
         private readonly IMapper _mapper;
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IUserEntityRepository _userEntity;
-
+        private readonly IUnitOfWorkADO _unitOfWork;
         private readonly IUserEntityRepositoryADO _userEntityAdo;
 
         public CreateUserHandle(IMapper mapper, 
-                                IUnitOfWork unitOfWork,
+                                IUnitOfWorkADO unitOfWork,
                                 IUserEntityRepositoryADO userEntity)
         {
             _mapper = mapper;
@@ -27,10 +25,12 @@ namespace Model.Trello.Application.UseCases.User.CreateUser
         public async Task<CreateUserResponse> Handle(CreateUserRequest request, 
                                                 CancellationToken cancellationToken)
         {
+            _unitOfWork.BeginTrasaction();
+
             var user = _mapper.Map<UserEntity>(request);
             await _userEntityAdo.AddUser(user);
 
-            //await _unitOfWork.Commit(cancellationToken);
+            _unitOfWork.Commit();
 
             return _mapper.Map<CreateUserResponse>(user);
         }

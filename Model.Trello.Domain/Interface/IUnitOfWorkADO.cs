@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
 
 namespace Model.Trello.Domain.Interface
 {
@@ -10,6 +7,7 @@ namespace Model.Trello.Domain.Interface
     {
         void BeginTrasaction();
         void Commit();
+        IDbCommand CreateCommad();
         void RollBack();
     }
 }
