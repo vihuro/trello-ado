@@ -26,7 +26,7 @@ namespace Model.Trello.Application.UseCases.TasksInList.UpdataPostionTaskInList
             int validateId = 0;
             using (var unit = _unitOfWork.BeginTrasaction())
             {
-                var validate = await _taskInListRepository.GetById(request.TaskId);
+                var validate = await _taskInListRepository.GetByTaskId(request.TaskId);
 
                 if (validate != null) { }
                 validateId = validate.Id;
@@ -41,9 +41,6 @@ namespace Model.Trello.Application.UseCases.TasksInList.UpdataPostionTaskInList
 
                 return _mapper.Map<UpdatePostionTaskInListResponse>(updatePostion);
             }
-
-
-            //var teste = await _taskInListRepository.GetById(request.TaskId);
 
         }
     }

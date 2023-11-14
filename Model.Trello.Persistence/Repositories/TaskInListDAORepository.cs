@@ -14,7 +14,47 @@ namespace Model.Trello.Persistence.Repositories
         {
             _connection = connection;
         }
+        public async Task DeleteByTaskId(int TaskId)
+        {
+            var commandText = "DELETE FROM tab_task_in_list " +
+                                "WHERE \"TaskId\" =  @TaskId";
 
+            try
+            {
+                using (var cmd = (NpgsqlCommand)_connection.CreateCommand())
+                {
+                    cmd.CommandText = commandText;
+                    cmd.Parameters.AddWithValue("@TaskId", TaskId);
+
+                    await cmd.ExecuteNonQueryAsync();
+
+                };
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+
+        }
+
+        public async Task UpdatePostionInRow(int ListId)
+        {
+            var listTable = await GetByListTaskId(ListId);
+
+            var cont = 1;
+
+            foreach (var item in listTable)
+            {
+                item.Order = cont;
+
+                cont++;
+            }
+
+            await Update(listTable);
+
+        }
         public async Task InsertTaskInList(int TaskId, int ListId)
         {
 
@@ -24,6 +64,14 @@ namespace Model.Trello.Persistence.Repositories
                                     "(@TaskId, @ListId,@Order);";
 
             var valueRow = await AccounRow(ListId);
+
+            var validateExistingTaskInList = await GetByTaskId(TaskId);
+
+            if (validateExistingTaskInList != null)
+            {
+                await DeleteByTaskId(TaskId);
+                await UpdatePostionInRow(ListId);
+            }
 
 
             using var cmd = (NpgsqlCommand)_connection.CreateCommand();
@@ -76,29 +124,35 @@ namespace Model.Trello.Persistence.Repositories
 
         }
 
-        public async Task<TaskInListEntity> GetById(int TaskId)
+        public async Task<TaskInListEntity> GetByTaskId(int TaskId)
         {
             string commandText = "SELECT * FROM tab_task_in_list WHERE \"TaskId\" = @TaskId";
 
-            using var cmd = (NpgsqlCommand)_connection.CreateCommand();
-
-            cmd.CommandText = commandText;
-
-            cmd.Parameters.AddWithValue("@TaskId", TaskId);
-
-            var reader = await cmd.ExecuteReaderAsync();
-
-            if (reader.HasRows)
+            using (var cmd = (NpgsqlCommand)_connection.CreateCommand())
             {
-                var entity = new TaskInListEntity();
-                while (reader.Read())
+                cmd.CommandText = commandText;
+
+                cmd.Parameters.AddWithValue("@TaskId", TaskId);
+
+                using (var reader = await cmd.ExecuteReaderAsync())
                 {
-                    entity.Id = (int)reader["Id"];
-                    entity.Order = (int)reader["Order"];
-                    entity.TaskListId = (int)reader["LisTaskId"];
+                    if (reader.HasRows)
+                    {
+                        var entity = new TaskInListEntity();
+                        while (reader.Read())
+                        {
+                            entity.Id = (int)reader["Id"];
+                            entity.Order = (int)reader["Order"];
+                            entity.TaskListId = (int)reader["LisTaskId"];
+                        }
+                        return entity;
+                    }
                 }
-                return entity;
+
+
             }
+
+
             return null;
         }
 
@@ -141,9 +195,20 @@ namespace Model.Trello.Persistence.Repositories
 
             var sortedItems = items.OrderBy(item => item.Order).ToList();
 
-            var oneItem = sortedItems.FirstOrDefault(x => x.TaskId == TaskId);
+            var oneItem = sortedItems.FirstOrDefault(x => x.Id == TaskId);
 
-            sortedItems.Remove(oneItem);
+            if (oneItem == null)
+            {
+                oneItem = await GetByTaskId(ListTaskId);
+                oneItem.TaskListId = ListTaskId;
+                oneItem.Id = TaskId;
+            }
+            else
+            {
+                sortedItems.Remove(oneItem);
+
+            }
+
 
             sortedItems = sortedItems.OrderBy(x => x.Order).ToList();
 
@@ -171,7 +236,7 @@ namespace Model.Trello.Persistence.Repositories
 
         private async Task Update(List<TaskInListEntity> sortedItems)
         {
-            string updateQuery = "UPDATE tab_task_in_list SET \"Order\" = @Order WHERE \"Id\" = @ItemId;";
+            string updateQuery = "UPDATE tab_task_in_list SET \"Order\" = @Order , \"LisTaskId\" = @ListTaskId WHERE \"Id\" = @ItemId;";
 
 
             foreach (var item in sortedItems)
@@ -181,6 +246,7 @@ namespace Model.Trello.Persistence.Repositories
 
                 updateCmd.Parameters.AddWithValue("@Order", item.Order);
                 updateCmd.Parameters.AddWithValue("@ItemId", item.Id);
+                updateCmd.Parameters.AddWithValue("@ListTaskId", item.TaskListId);
 
                 await updateCmd.ExecuteNonQueryAsync();
 

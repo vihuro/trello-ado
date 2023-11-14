@@ -17,11 +17,12 @@ namespace Model.Trello.Application.UseCases.TasksInList.CreateTaskInList
 
         public async Task<CreateTaskInListResponse> Handle(CreateTaskInListRequest request, CancellationToken cancellationToken)
         {
-            _unitOfWork.BeginTrasaction();
+            using (var unit = _unitOfWork.BeginTrasaction())
+            {
+                await _taskInListDAORepository.InsertTaskInList(request.TaskId, request.TaskListId);
+                _unitOfWork.Commit();
 
-            await _taskInListDAORepository.InsertTaskInList(request.TaskId,request.TaskListId);
-
-            _unitOfWork.Commit();
+            }
 
             return new CreateTaskInListResponse();
 

@@ -24,7 +24,7 @@ namespace Model.Trello.Application.UseCases.TasksInList.GetByTaskId
         {
             _unitOfWork.BeginTrasaction();
 
-            var TaskInList = await _taskInListDAORepository.GetById(request.Id);
+            var TaskInList = await _taskInListDAORepository.GetByTaskId(request.Id);
 
 
             return _mapper.Map<GetByTaskIdResponse>(TaskInList);
