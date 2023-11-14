@@ -102,11 +102,9 @@ namespace Model.Trello.Persistence.Repositories
             return null;
         }
 
-        public async Task<TaskInListEntity> UpdatePostion(int TaskId, int Position, int ListTaskId)
+        private async Task<List<TaskInListEntity>> GetByListTaskId(int ListTaskId)
         {
             var items = new List<TaskInListEntity>();
-
-
             string selectQuery = "SELECT * FROM tab_task_in_list WHERE \"LisTaskId\" = @ListTaskId;";
             using (var selectCmd = (NpgsqlCommand)_connection.CreateCommand())
             {
@@ -131,71 +129,64 @@ namespace Model.Trello.Persistence.Repositories
                 }
             }
 
+            return items;
+
+        }
+
+        public async Task<TaskInListEntity> UpdatePostion(int TaskId, int Position, int ListTaskId)
+        {
+            var items = await GetByListTaskId(ListTaskId);
+
+            items = items.OrderBy(item => item.Order).ToList();
+
+            var sortedItems = items.OrderBy(item => item.Order).ToList();
+
+            var oneItem = sortedItems.FirstOrDefault(x => x.TaskId == TaskId);
+
+            sortedItems.Remove(oneItem);
+
+            sortedItems = sortedItems.OrderBy(x => x.Order).ToList();
 
 
-            try
+            for (int i = 0; i < sortedItems.Count; i++)
             {
-
-
-                // Ordene os itens por ordem existente
-                items = items.OrderBy(item => item.Order).ToList();
-
-                // Encontre o item com o TaskId especificado
-                TaskInListEntity targetItem = items.FirstOrDefault(item => item.TaskId == TaskId);
-
-                if (targetItem != null)
+                if (i + 1 == Position || i + 1 > Position)
                 {
-                    // Define a nova posição para o TaskId especificado
-                    targetItem.Order = Position;
-
-                    // Atualize as posições dos outros itens
-                    int currentPosition = 1;
-
-                    foreach (var item in items)
-                    {
-                        if (item.TaskId == targetItem.TaskId)
-                        {
-                            item.Order = targetItem.Order;
-                        }
-                        else
-                        {
-                            item.Order = currentPosition;
-
-                        }
-                        currentPosition++;
-                    }
-
-                    string updateQuery = "UPDATE tab_task_in_list SET \"Order\" = @Order WHERE \"Id\" = @ItemId;";
-
-
-                    foreach (var item in items)
-                    {
-                        using var updateCmd = (NpgsqlCommand)_connection.CreateCommand();
-                        updateCmd.CommandText = updateQuery;
-
-                        updateCmd.Parameters.AddWithValue("@Order", item.Order);
-                        updateCmd.Parameters.AddWithValue("@ItemId", item.Id);
-
-                        await updateCmd.ExecuteNonQueryAsync();
-
-                        updateCmd.Parameters.Clear();
-
-                    }
-
+                    sortedItems[i].Order = i + 2;
+                }
+                else
+                {
+                    sortedItems[i].Order = i + 1;
 
                 }
             }
-            catch (Exception ex)
-            {
+            oneItem.Order = Position;
+            sortedItems.Add(oneItem);
 
-                throw new Exception(ex.Message);
-            }
-
+            await Update(sortedItems);
 
             return null;
+
         }
 
+        private async Task Update(List<TaskInListEntity> sortedItems)
+        {
+            string updateQuery = "UPDATE tab_task_in_list SET \"Order\" = @Order WHERE \"Id\" = @ItemId;";
 
 
+            foreach (var item in sortedItems)
+            {
+                using var updateCmd = (NpgsqlCommand)_connection.CreateCommand();
+                updateCmd.CommandText = updateQuery;
+
+                updateCmd.Parameters.AddWithValue("@Order", item.Order);
+                updateCmd.Parameters.AddWithValue("@ItemId", item.Id);
+
+                await updateCmd.ExecuteNonQueryAsync();
+
+                updateCmd.Parameters.Clear();
+
+            }
+        }
     }
 }

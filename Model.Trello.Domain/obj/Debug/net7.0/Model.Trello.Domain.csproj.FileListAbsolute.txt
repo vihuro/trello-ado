@@ -33,3 +33,15 @@ C:\Users\thr\Desktop\.NET\trello-ado\Model.Trello.Domain\obj\Debug\net7.0\Model.
 C:\Users\thr\Desktop\.NET\trello-ado\Model.Trello.Domain\obj\Debug\net7.0\refint\Model.Trello.Domain.dll
 C:\Users\thr\Desktop\.NET\trello-ado\Model.Trello.Domain\obj\Debug\net7.0\Model.Trello.Domain.pdb
 C:\Users\thr\Desktop\.NET\trello-ado\Model.Trello.Domain\obj\Debug\net7.0\ref\Model.Trello.Domain.dll
+C:\Users\vitor\Desktop\.NET\trello-ado\Model.Trello.Domain\bin\Debug\net7.0\Model.Trello.Domain.deps.json
+C:\Users\vitor\Desktop\.NET\trello-ado\Model.Trello.Domain\bin\Debug\net7.0\Model.Trello.Domain.dll
+C:\Users\vitor\Desktop\.NET\trello-ado\Model.Trello.Domain\bin\Debug\net7.0\Model.Trello.Domain.pdb
+C:\Users\vitor\Desktop\.NET\trello-ado\Model.Trello.Domain\obj\Debug\net7.0\Model.Trello.Domain.csproj.AssemblyReference.cache
+C:\Users\vitor\Desktop\.NET\trello-ado\Model.Trello.Domain\obj\Debug\net7.0\Model.Trello.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vitor\Desktop\.NET\trello-ado\Model.Trello.Domain\obj\Debug\net7.0\Model.Trello.Domain.AssemblyInfoInputs.cache
+C:\Users\vitor\Desktop\.NET\trello-ado\Model.Trello.Domain\obj\Debug\net7.0\Model.Trello.Domain.AssemblyInfo.cs
+C:\Users\vitor\Desktop\.NET\trello-ado\Model.Trello.Domain\obj\Debug\net7.0\Model.Trello.Domain.csproj.CoreCompileInputs.cache
+C:\Users\vitor\Desktop\.NET\trello-ado\Model.Trello.Domain\obj\Debug\net7.0\Model.Trello.Domain.dll
+C:\Users\vitor\Desktop\.NET\trello-ado\Model.Trello.Domain\obj\Debug\net7.0\refint\Model.Trello.Domain.dll
+C:\Users\vitor\Desktop\.NET\trello-ado\Model.Trello.Domain\obj\Debug\net7.0\Model.Trello.Domain.pdb
+C:\Users\vitor\Desktop\.NET\trello-ado\Model.Trello.Domain\obj\Debug\net7.0\ref\Model.Trello.Domain.dll
